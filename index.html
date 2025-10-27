@@ -3,89 +3,128 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tyler’s Tech Repair | Honest Local Computer Help</title>
+  <title>Tyler’s Tech Repair | Local Computer Help You Can Trust</title>
   <style>
+    :root {
+      --primary: #0d6efd;
+      --bg-light: #f8f9fa;
+      --text-dark: #222;
+      --max-width: 1100px;
+    }
+
     body {
       font-family: "Segoe UI", sans-serif;
       margin: 0;
-      background-color: #fafafa;
-      color: #222;
+      color: var(--text-dark);
+      background: white;
     }
+
     header {
-      background-color: #0d6efd;
+      background: var(--primary);
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
     }
+
     header h1 {
+      font-size: 2.5rem;
       margin: 0;
-      font-size: 2rem;
     }
+
     header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
       opacity: 0.9;
     }
+
     nav {
-      background: #f2f2f2;
-      padding: 0.7rem;
+      background: #e9ecef;
+      padding: 1rem;
       text-align: center;
+      border-bottom: 1px solid #ccc;
     }
+
     nav a {
+      color: var(--primary);
       text-decoration: none;
-      color: #0d6efd;
-      margin: 0 10px;
+      margin: 0 15px;
       font-weight: 600;
     }
+
     main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      max-width: var(--max-width);
+      margin: 3rem auto;
+      padding: 0 2rem;
     }
+
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 4rem;
     }
+
     h2 {
-      border-bottom: 2px solid #0d6efd;
-      padding-bottom: 0.4rem;
-      color: #0d6efd;
-    }
-    .service {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      color: var(--primary);
+      border-left: 5px solid var(--primary);
+      padding-left: 10px;
+      font-size: 1.8rem;
       margin-bottom: 1rem;
     }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service {
+      background: var(--bg-light);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-4px);
+    }
+
     .service h3 {
       margin-top: 0;
+      color: var(--primary);
     }
+
+    .service p {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    #about {
+      background: var(--bg-light);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    #contact {
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    #contact strong {
+      color: var(--primary);
+    }
+
     footer {
-      background: #0d6efd;
+      background: var(--primary);
       color: white;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 1.5rem;
       font-size: 0.95rem;
-    }
-    .contact {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      line-height: 1.6;
-    }
-    @media (min-width: 700px) {
-      .contact {
-        flex-direction: row;
-        justify-content: center;
-        gap: 2rem;
-      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Tyler’s Tech Repair</h1>
-    <p>Friendly, honest local computer help — fast and affordable.</p>
+    <p>Honest local computer help — quick, affordable, and reliable.</p>
   </header>
 
   <nav>
@@ -96,57 +135,51 @@
 
   <main>
     <section id="services">
-      <h2>Services</h2>
-
-      <div class="service">
-        <h3>Speed Up PC — $60–80</h3>
-        <p>Clean junk files, disable unnecessary startup apps, and update Windows to make your old computer run like new again.</p>
-      </div>
-
-      <div class="service">
-        <h3>Wi-Fi Fix — $50–70</h3>
-        <p>Troubleshoot connection issues, reset your router, and get your internet running smoothly again.</p>
-      </div>
-
-      <div class="service">
-        <h3>Printer Setup & Fix — $50–70</h3>
-        <p>Set up new printers, reinstall drivers, and fix annoying “offline” errors.</p>
-      </div>
-
-      <div class="service">
-        <h3>Email & Login Help — $40–60</h3>
-        <p>Reset lost passwords, recover locked accounts, and make email work reliably again.</p>
-      </div>
-
-      <div class="service">
-        <h3>File Backup & Transfer — $60–100</h3>
-        <p>Move your data to a new device or set up automatic cloud backups for peace of mind.</p>
-      </div>
-
-      <div class="service">
-        <h3>New Device Setup — $60–90</h3>
-        <p>Get your new laptop, PC, or phone set up and ready to use — without the headache.</p>
+      <h2>Services I Offer</h2>
+      <div class="services">
+        <div class="service">
+          <h3>Speed Up PC — $60–80</h3>
+          <p>Clean junk files, disable startup apps, update Windows, and make your old computer run like new again.</p>
+        </div>
+        <div class="service">
+          <h3>Wi-Fi Fix — $50–70</h3>
+          <p>Diagnose and fix slow or disconnected Wi-Fi, reset routers, and boost your home connection reliability.</p>
+        </div>
+        <div class="service">
+          <h3>Printer Setup & Fix — $50–70</h3>
+          <p>Install or reconnect printers, fix “offline” issues, and make sure they actually print when you need them.</p>
+        </div>
+        <div class="service">
+          <h3>Email & Login Help — $40–60</h3>
+          <p>Reset passwords, recover accounts, and make sure you can access what’s important again.</p>
+        </div>
+        <div class="service">
+          <h3>File Backup & Transfer — $60–100</h3>
+          <p>Transfer files between devices or set up automatic backups so you never lose your photos or documents.</p>
+        </div>
+        <div class="service">
+          <h3>New Device Setup — $60–90</h3>
+          <p>Get your new computer, laptop, or phone set up properly and ready to go from day one.</p>
+        </div>
       </div>
     </section>
 
     <section id="about">
       <h2>About Me</h2>
-      <p>Hey! I’m Tyler — your local tech repair guy. I don’t work for a big company — it’s just me helping locals fix their tech problems honestly and affordably. No upselling, no hidden fees — just straightforward help you can trust.</p>
+      <p>Hi, I’m Tyler — your local tech repair guy. I’m not a big company, just someone who helps locals fix their computers, Wi-Fi, and tech issues with honesty and patience. No confusing jargon or surprise charges — just straight help from someone nearby who actually cares.</p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
-      <div class="contact">
-        <div><strong>📍 Location:</strong> 123 Main Street, YourTown, Australia</div>
-        <div><strong>📞 Phone:</strong> 0400 123 456</div>
-        <div><strong>✉️ Email:</strong> help@tylertechrepair.com</div>
-      </div>
-      <p style="margin-top:1rem;">Available Monday–Saturday, 9am–6pm. Call or text anytime for a quick quote.</p>
+      <p><strong>📍 Location:</strong> 123 Main Street, YourTown, Australia</p>
+      <p><strong>📞 Phone:</strong> 0400 123 456</p>
+      <p><strong>✉️ Email:</strong> help@tylertechrepair.com</p>
+      <p>Available Monday–Saturday, 9am–6pm. Text or call for a quick quote or same-day help.</p>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Tyler’s Tech Repair — Local, Honest, Reliable.</p>
+    <p>© 2025 Tyler’s Tech Repair — Local. Honest. Reliable.</p>
   </footer>
 </body>
 </html>
