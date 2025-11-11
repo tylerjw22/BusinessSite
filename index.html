@@ -16,41 +16,40 @@
     background-color: #d96c0d;
     color: white;
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
   }
 
   header h1 {
     margin: 0;
-    font-size: 40px;
+    font-size: 42px;
   }
 
-  header p {
-    font-size: 18px;
-    margin-top: 10px;
-    opacity: 0.95;
+  header p.tagline {
+    font-size: 20px;
+    margin: 10px 0 20px;
+    opacity: 0.9;
   }
 
-  .book-now {
+  .hero-cta {
     display: inline-block;
-    margin-top: 20px;
     background-color: white;
     color: #d96c0d;
     font-weight: bold;
     text-decoration: none;
-    padding: 12px 24px;
+    padding: 14px 28px;
     border-radius: 6px;
-    transition: 0.2s;
+    transition: background-color 0.2s;
   }
 
-  .book-now:hover {
+  .hero-cta:hover {
     background-color: #ffe6d1;
   }
 
   nav {
     background-color: #fff;
     text-align: center;
-    border-bottom: 1px solid #e3d5c8;
     padding: 12px 0;
+    border-bottom: 1px solid #e3d5c8;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -58,9 +57,9 @@
 
   nav a {
     color: #d96c0d;
-    font-weight: bold;
     text-decoration: none;
     margin: 0 18px;
+    font-weight: bold;
   }
 
   nav a:hover {
@@ -76,6 +75,10 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
+  section {
+    margin-bottom: 60px;
+  }
+
   h2 {
     color: #d96c0d;
     border-left: 5px solid #d96c0d;
@@ -83,33 +86,84 @@
     margin-top: 0;
   }
 
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+  }
+
   .service {
     border: 1px solid #ddd;
     background-color: #fdfaf7;
-    padding: 15px;
-    margin-bottom: 18px;
+    padding: 20px;
     border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .service:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
 
   .service h3 {
-    margin: 0;
+    margin: 0 0 10px;
     color: #d96c0d;
+    font-size: 20px;
   }
 
   .service p {
-    margin: 6px 0 0 0;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  .features li {
+    margin-bottom: 10px;
+    padding-left: 24px;
+    position: relative;
+    font-size: 16px;
+  }
+
+  .features li:before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #d96c0d;
+    font-weight: bold;
   }
 
   .center {
     text-align: center;
   }
 
-  #about {
-    margin-top: 60px;
+  #about p {
+    font-size: 15px;
+    line-height: 1.5;
   }
 
-  #contact {
-    margin-top: 60px;
+  #contact p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .book-now {
+    display: inline-block;
+    background-color: #d96c0d;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+
+  .book-now:hover {
+    background-color: #b85300;
   }
 
   footer {
@@ -117,7 +171,6 @@
     color: white;
     text-align: center;
     padding: 25px 10px;
-    margin-top: 50px;
     font-size: 15px;
   }
 
@@ -126,7 +179,12 @@
       width: 95%;
       padding: 20px;
     }
-    header h1 { font-size: 32px; }
+    header h1 {
+      font-size: 32px;
+    }
+    header p.tagline {
+      font-size: 18px;
+    }
   }
 </style>
 </head>
@@ -134,60 +192,73 @@
 
 <header>
   <h1>Tyler’s Tech Repair</h1>
-  <p>Fast, Honest Computer Help — Fair Prices. No BS.</p>
-  <a href="#contact" class="book-now">📅 Book Now</a>
+  <p class="tagline">Your Computer Should Work. Fast. Local Tech Help You Can Trust.</p>
+  <a href="#contact" class="hero-cta">📅 Book Now</a>
 </header>
 
 <nav>
   <a href="#services">Services</a>
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
-  <a href="#contact" class="book-now" style="padding:6px 14px;font-size:14px;">Book Now</a>
+  <a href="#contact" class="book-now">Book Now</a>
 </nav>
 
 <main>
   <section id="services">
     <h2>Services & Prices</h2>
 
-    <div class="service">
-      <h3>Speed Up PC — $70</h3>
-      <p>Clean junk files, stop startup apps, and update Windows to make your computer fast again.</p>
+    <div class="service-grid">
+      <div class="service">
+        <h3>Speed Up PC — $70</h3>
+        <p>Clean junk files, stop startup apps, and update Windows to make your computer fast again.</p>
+      </div>
+
+      <div class="service">
+        <h3>Wi-Fi Fix — $60</h3>
+        <p>Stop dropouts, reconnect devices, and fix router issues for a stable internet connection.</p>
+      </div>
+
+      <div class="service">
+        <h3>Printer Setup / Fix — $60</h3>
+        <p>Set up new printers or repair “offline” issues so you can print again hassle-free.</p>
+      </div>
+
+      <div class="service">
+        <h3>Email & Login Help — $50</h3>
+        <p>Recover passwords or unlock accounts safely and securely.</p>
+      </div>
+
+      <div class="service">
+        <h3>File Backup & Transfer — $80</h3>
+        <p>Transfer files to new devices or set up safe automatic backups.</p>
+      </div>
+
+      <div class="service">
+        <h3>New Device Setup — $75</h3>
+        <p>Get your new computer, laptop, or phone running perfectly from day one.</p>
+      </div>
     </div>
 
-    <div class="service">
-      <h3>Wi-Fi Fix — $60</h3>
-      <p>Stop dropouts, reconnect devices, and fix router issues for a stable internet connection.</p>
-    </div>
-
-    <div class="service">
-      <h3>Printer Setup / Fix — $60</h3>
-      <p>Set up new printers or repair “offline” issues so you can print again hassle-free.</p>
-    </div>
-
-    <div class="service">
-      <h3>Email & Login Help — $50</h3>
-      <p>Recover passwords or unlock accounts safely and securely.</p>
-    </div>
-
-    <div class="service">
-      <h3>File Backup & Transfer — $80</h3>
-      <p>Transfer files to new devices or set up safe automatic backups.</p>
-    </div>
-
-    <div class="service">
-      <h3>New Device Setup — $75</h3>
-      <p>Get your new computer, laptop, or phone running perfectly from day one.</p>
-    </div>
-
-    <div class="center">
+    <div class="center" style="margin-top:30px;">
       <a href="#contact" class="book-now">Book a Visit</a>
     </div>
   </section>
 
+  <section id="features">
+    <h2>Why Choose Me?</h2>
+    <ul class="features">
+      <li>Fast local response – no waiting days for a tech visit.</li>
+      <li>Simple, honest pricing – no hidden fees or upsells.</li>
+      <li>One-man operation – you deal with me directly.</li>
+      <li>Clear communication – I’ll explain what I’m doing and why.</li>
+      <li>Home visits, same-day when possible.</li>
+    </ul>
+  </section>
+
   <section id="about">
     <h2>About Me</h2>
-    <p>Hey, I’m Tyler — a local tech guy who helps people around YourTown fix slow computers, bad Wi-Fi, and general tech headaches. I run this solo, so you always deal directly with me — no call centers or upsells.</p>
-    <p>I’ll tell you honestly if something’s not worth repairing, and if it’s an easy fix, I’ll show you how to do it yourself next time. That’s how local service should be.</p>
+    <p>Hey, I’m Tyler — a local tech guy who helps people around YourTown with slow computers, dodgy Wi-Fi, and general tech headaches. I run this solo, so you always deal directly with me — no call centers or upsells.</p>
+    <p>I believe service should be simple, fair and clear. If something’s not worth repairing, I’ll tell you. If it’s something you can do yourself next time, I’ll show you how. That’s how local business should work.</p>
   </section>
 
   <section id="contact">
@@ -195,7 +266,7 @@
     <p><strong>📍 Address:</strong> 123 Main Street, YourTown, Australia</p>
     <p><strong>📞 Phone:</strong> 0400 123 456</p>
     <p><strong>✉️ Email:</strong> help@tylertechrepair.com</p>
-    <p><strong>🕓 Hours:</strong> Mon–Sat, 9 am – 6 pm</p>
+    <p><strong>🕓 Hours:</strong> Mon–Sat, 9 am–6 pm</p>
 
     <div class="center" style="margin-top:25px;">
       <a href="mailto:help@tylertechrepair.com?subject=Tech%20Help%20Booking" class="book-now">📅 Book Now</a>
