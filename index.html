@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Tyler’s Tech Repair — Local Computer Help</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-o9N1j7kGdG6kH7/g2o7sQz2b7r2b2w0S2v+v8qg1hE0="
+  crossorigin=""/>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -19,31 +25,8 @@
     padding: 60px 20px;
   }
 
-  header h1 {
-    margin: 0;
-    font-size: 42px;
-  }
-
-  header p.tagline {
-    font-size: 20px;
-    margin: 10px 0 20px;
-    opacity: 0.9;
-  }
-
-  .hero-cta {
-    display: inline-block;
-    background-color: white;
-    color: #d96c0d;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 14px 28px;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-  }
-
-  .hero-cta:hover {
-    background-color: #ffe6d1;
-  }
+  header h1 { margin: 0; font-size: 42px; }
+  header p.tagline { font-size: 20px; margin: 10px 0 20px; opacity: 0.9; }
 
   nav {
     background-color: #fff;
@@ -55,16 +38,8 @@
     z-index: 1000;
   }
 
-  nav a {
-    color: #d96c0d;
-    text-decoration: none;
-    margin: 0 18px;
-    font-weight: bold;
-  }
-
-  nav a:hover {
-    text-decoration: underline;
-  }
+  nav a { color: #d96c0d; text-decoration: none; margin: 0 18px; font-weight: bold; cursor:pointer; }
+  nav a:hover { text-decoration: underline; }
 
   main {
     width: 90%;
@@ -75,10 +50,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
 
-  section {
-    margin-bottom: 60px;
-  }
-
+  section { margin-bottom: 60px; }
   h2 {
     color: #d96c0d;
     border-left: 5px solid #d96c0d;
@@ -92,106 +64,29 @@
     gap: 20px;
   }
 
-  .service {
-    border: 1px solid #ddd;
-    background-color: #fdfaf7;
-    padding: 20px;
-    border-radius: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
+  .service { border: 1px solid #ddd; background-color: #fdfaf7; padding: 20px; border-radius: 5px; transition: transform 0.2s, box-shadow 0.2s; }
+  .service:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .service h3 { margin: 0 0 10px; color: #d96c0d; font-size: 20px; }
+  .service p { margin: 0; font-size: 15px; }
 
-  .service:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
+  .features { list-style: none; padding: 0; margin: 20px 0; }
+  .features li { margin-bottom: 10px; padding-left: 24px; position: relative; font-size: 16px; }
+  .features li:before { content: "✔"; position: absolute; left: 0; color: #d96c0d; font-weight: bold; }
 
-  .service h3 {
-    margin: 0 0 10px;
-    color: #d96c0d;
-    font-size: 20px;
-  }
+  .center { text-align: center; }
+  .book-now { display: inline-block; background-color: #d96c0d; color: white; font-weight: bold; text-decoration: none; padding: 12px 28px; border-radius: 6px; transition: background-color 0.2s; }
+  .book-now:hover { background-color: #b85300; }
 
-  .service p {
-    margin: 0;
-    font-size: 15px;
-  }
+  #map { width: 100%; height: 380px; border-radius: 8px; border: 2px solid #d96c0d; overflow: hidden; }
 
-  .features {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-  }
+  /* ensure anchor clicks center sections */
+  html { scroll-behavior: smooth; }
 
-  .features li {
-    margin-bottom: 10px;
-    padding-left: 24px;
-    position: relative;
-    font-size: 16px;
-  }
-
-  .features li:before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #d96c0d;
-    font-weight: bold;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  #about p {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  #contact p {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .book-now {
-    display: inline-block;
-    background-color: #d96c0d;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 6px;
-    transition: background-color 0.2s;
-  }
-
-  .book-now:hover {
-    background-color: #b85300;
-  }
-
-  footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 25px 10px;
-    font-size: 15px;
-  }
-
-  @media (max-width: 700px) {
-    main {
-      width: 95%;
-      padding: 20px;
-    }
-    header h1 {
-      font-size: 32px;
-    }
-    header p.tagline {
-      font-size: 18px;
-    }
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  section {
-    scroll-margin-top: 100px; /* adjust if needed */
+  @media (max-width:700px){
+    main { width:95%; padding:20px; }
+    header h1 { font-size: 32px; }
+    header p.tagline { font-size: 18px; }
+    #map { height: 300px; }
   }
 </style>
 </head>
@@ -203,102 +98,152 @@
 </header>
 
 <nav>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-  <a href="#contact" class="book-now">Book Now</a>
+  <a data-href="#services">Services</a>
+  <a data-href="#about">About</a>
+  <a data-href="#contact">Contact</a>
+  <a href="mailto:help@tylertechrepair.com?subject=Tech%20Help%20Booking" class="book-now">Book Now</a>
 </nav>
 
 <main>
   <section id="services">
     <h2>Services & Prices</h2>
-
     <div class="service-grid">
-      <div class="service">
-        <h3>Speed Up PC — $70</h3>
-        <p>Clean junk files, stop startup apps, and update Windows to make your computer fast again.</p>
-      </div>
-
-      <div class="service">
-        <h3>Wi-Fi Fix — $60</h3>
-        <p>Stop dropouts, reconnect devices, and fix router issues for a stable internet connection.</p>
-      </div>
-
-      <div class="service">
-        <h3>Printer Setup / Fix — $60</h3>
-        <p>Set up new printers or repair “offline” issues so you can print again hassle-free.</p>
-      </div>
-
-      <div class="service">
-        <h3>Email & Login Help — $50</h3>
-        <p>Recover passwords or unlock accounts safely and securely.</p>
-      </div>
-
-      <div class="service">
-        <h3>File Backup & Transfer — $80</h3>
-        <p>Transfer files to new devices or set up safe automatic backups.</p>
-      </div>
-
-      <div class="service">
-        <h3>New Device Setup — $75</h3>
-        <p>Get your new computer, laptop, or phone running perfectly from day one.</p>
-      </div>
+      <div class="service"><h3>Speed Up PC — $70</h3><p>Clean junk files, stop startup apps, and update Windows.</p></div>
+      <div class="service"><h3>Wi-Fi Fix — $60</h3><p>Stop dropouts, reconnect devices, and fix router issues.</p></div>
+      <div class="service"><h3>Printer Setup / Fix — $60</h3><p>Set up printers or fix “offline” issues.</p></div>
+      <div class="service"><h3>Email & Login Help — $50</h3><p>Recover passwords or unlock accounts safely.</p></div>
+      <div class="service"><h3>File Backup & Transfer — $80</h3><p>Transfer files to new devices or set up backups.</p></div>
+      <div class="service"><h3>New Device Setup — $75</h3><p>Get new devices ready to use.</p></div>
     </div>
-
-    <div class="center" style="margin-top:30px;">
-      <a href="#contact" class="book-now">Book a Visit</a>
-    </div>
+    <div class="center" style="margin-top:30px;"><a href="#contact" class="book-now">Book a Visit</a></div>
   </section>
 
   <section id="features">
     <h2>Why Choose Me?</h2>
     <ul class="features">
-      <li>Fast local response – no waiting days for a tech visit.</li>
-      <li>Simple, honest pricing – no hidden fees or upsells.</li>
+      <li>Fast local response – no long waits.</li>
+      <li>Simple, honest pricing – no hidden fees.</li>
       <li>One-man operation – you deal with me directly.</li>
-      <li>Clear communication – I’ll explain what I’m doing and why.</li>
-      <li>Home visits, same-day when possible.</li>
+      <li>Clear communication – I explain what I do and why.</li>
+      <li>Home visits and same-day when possible.</li>
     </ul>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>Hey, I’m Tyler — a local tech guy who helps people around YourTown with slow computers, dodgy Wi-Fi, and general tech headaches. I run this solo, so you always deal directly with me — no call centers or upsells.</p>
-    <p>I believe service should be simple, fair and clear. If something’s not worth repairing, I’ll tell you. If it’s something you can do yourself next time, I’ll show you how. That’s how local business should work.</p>
+    <p>Hey, I’m Tyler — a local tech guy helping Newport & the Redcliffe Peninsula with computers and Wi-Fi. I run solo — honest, clear service.</p>
   </section>
 
-    <section id="contact">
+  <section id="contact">
     <h2>Book or Contact</h2>
-    <p><strong>📍 Address:</strong> Newport, Brisbane</p>
+    <p><strong>📍 Base:</strong> Newport, Brisbane</p>
     <p><strong>📞 Phone:</strong> 0400 123 456</p>
     <p><strong>✉️ Email:</strong> help@tylertechrepair.com</p>
-    <p><strong>🕓 Hours:</strong> Mon–Sat, 9 am–6 pm</p>
+    <p><strong>🕓 Hours:</strong> Mon–Sat, 9am–6pm</p>
 
-    <div class="center" style="margin-top:25px;">
+    <div class="center" style="margin-top:18px;">
       <a href="mailto:help@tylertechrepair.com?subject=Tech%20Help%20Booking" class="book-now">📅 Book Now</a>
     </div>
 
-    <!-- Embedded Google Map -->
-    <div style="margin-top:40px; text-align:center;">
-      <h3 style="color:#d96c0d; margin-bottom:15px;">Service Area – Newport, Brisbane</h3>
-      <div style="border:2px solid #d96c0d; border-radius:8px; overflow:hidden;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7064.162447773429!2d153.099!3d-27.225!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b93f7b1a6fa5d6f%3A0x502a35af3deca20!2sRedcliffe%20Peninsula%2C%20Queensland!5e0!3m2!1sen!2sau!4v1731328888888!5m2!1sen!2sau" 
-          width="100%" 
-          height="350" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
+    <div style="margin-top:30px;">
+      <h3 style="color:#d96c0d; margin-bottom:12px;">Service Area (visual)</h3>
+
+      <!-- Leaflet map -->
+      <div id="map"></div>
+
+      <p style="font-size:13px; color:#666; margin-top:8px;">
+        Shaded circle is an approximate service radius from Newport. Radius: <strong id="radiusLabel">9 km</strong>.
+        If you want exact suburb boundaries instead of a circle, I can add polygons for each suburb.
+      </p>
     </div>
   </section>
 </main>
 
-<footer>
+<footer style="background:#333;color:#fff;padding:18px 10px;text-align:center;">
   <p>© 2025 Tyler’s Tech Repair — Honest Work. Fair Prices. Local Help.</p>
 </footer>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-QVb0b1zv+9qj8K8xjV0Gv8w6j1gk+YV1SZ3q6u8s+T8="
+  crossorigin=""></script>
+
+<script>
+/* -------------------------
+  Map & service-area circle
+   - No API key required
+   - CENTER and RADIUS below can be adjusted
+------------------------- */
+(function(){
+  // Newport approx lat/lng — adjust if you want a different center
+  const center = [-27.2098, 153.0874]; // Newport / near your earlier embed
+  const radiusMeters = 9000; // 9000 m = 9 km (adjust to cover Redcliffe Peninsula -> Rothwell)
+
+  // init map
+  const map = L.map('map', { scrollWheelZoom: false }).setView(center, 12);
+
+  // tiles (OpenStreetMap)
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // add circle
+  const areaCircle = L.circle(center, {
+    color: '#d96c0d',
+    weight: 2,
+    fillColor: '#d96c0d',
+    fillOpacity: 0.12,
+    radius: radiusMeters
+  }).addTo(map);
+
+  // add markers for reference (Newport, Rothwell)
+  L.marker(center).bindPopup('Newport (base)').addTo(map);
+
+  // approximate Rothwell coords (for marker & reference). If you want exact, tell me and I'll tune:
+  const rothwell = [-27.2344, 153.0500];
+  L.marker(rothwell).bindPopup('Rothwell (approx)').addTo(map);
+
+  // fit map to the circle bounds with some padding
+  map.fitBounds(areaCircle.getBounds(), { padding: [40,40] });
+
+  // interactive legend (shows radius)
+  const radiusLabel = document.getElementById('radiusLabel');
+  radiusLabel.textContent = (radiusMeters/1000) + ' km';
+
+  // OPTIONAL: show polygon example (commented)
+  /*
+  const examplePolygon = L.polygon([
+    [-27.18,153.07], // sample coords - replace with real suburb polygon coords
+    [-27.16,153.09],
+    [-27.20,153.12],
+    [-27.23,153.10],
+  ], { color: '#d96c0d', weight: 2, fillOpacity: 0.08 }).addTo(map);
+  */
+
+})();
+
+/* -------------------------
+  Anchor nav smooth-centering
+  When nav links are clicked we scroll target into center of viewport
+------------------------- */
+(function(){
+  const navLinks = document.querySelectorAll('nav a[data-href], nav a[href^="#"]');
+
+  navLinks.forEach(a=>{
+    a.addEventListener('click', function(e){
+      // if this has data-href (our custom links) prevent default
+      const targetHash = a.getAttribute('data-href') || a.getAttribute('href');
+      if(!targetHash || !targetHash.startsWith('#')) return; // external link
+      e.preventDefault();
+      const target = document.querySelector(targetHash);
+      if(!target) return;
+      // scroll into center (so section isn't pinned to top)
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
