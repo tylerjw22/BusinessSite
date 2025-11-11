@@ -278,44 +278,18 @@
       <a href="mailto:help@tylertechrepair.com?subject=Tech%20Help%20Booking" class="book-now">📅 Book Now</a>
     </div>
 
-    <!-- Embedded Google Map -->
     <div style="margin-top:40px; text-align:center;">
-      <h3 style="color:#d96c0d; margin-bottom:15px;">Service Area – Anywhere from Redcliffe Peninsula to Rothwell</h3>
+      <h3 style="color:#d96c0d; margin-bottom:15px;">Service Area — Redcliffe Peninsula to Rothwell</h3>
       <div style="border:2px solid #d96c0d; border-radius:8px; overflow:hidden;">
-        <div id="map" style="width:100%;height:350px;border:2px solid #d96c0d;border-radius:8px;"></div>
-
-        <script>
-        function initMap() {
-          const center = { lat: -27.225, lng: 153.095 }; // Kippa-Ring centre
-          const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 12,
-            center: center,
-            mapTypeId: "roadmap",
-          });
-        
-          // Draw a circle roughly covering the Redcliffe Peninsula + Rothwell
-          new google.maps.Circle({
-            strokeColor: "#d96c0d",
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: "#d96c0d",
-            fillOpacity: 0.15,
-            map,
-            center: center,
-            radius: 4500, // covers Newport → Rothwell
-          });
-        }
-        </script>
-        
-        <!-- Load the Maps JavaScript API -->
-        <script async
-          src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
-        </script>
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1OhPG3IRY9IwbBUlIXNg422fnujJ8H38&ehbc=2E312F"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy">
+        </iframe>
       </div>
     </div>
-  </section>
-</main>
-
 <footer>
   <p>© 2025 Tyler’s Tech Repair — Honest Work. Fair Prices. Local Help.</p>
 </footer>
