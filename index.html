@@ -12,13 +12,11 @@
     color: #222;
   }
 
-  /* Darker header with gradient and depth */
   header {
     background: linear-gradient(135deg, #e07b1a 0%, #d96c0d 60%, #c65a00 100%);
     color: white;
     text-align: center;
     padding: 48px 20px 72px 20px;
-    /* subtle inner shadow for depth */
     box-shadow: inset 0 -6px 18px rgba(0,0,0,0.18);
   }
 
@@ -48,14 +46,15 @@
     z-index: 1000;
   }
 
-  nav a {
+  nav span {
     color: #d96c0d;
     text-decoration: none;
     margin: 0 18px;
     font-weight: bold;
+    cursor: pointer;
   }
 
-  nav a:hover {
+  nav span:hover {
     text-decoration: underline;
   }
 
@@ -181,7 +180,7 @@
   }
 
   section {
-    scroll-margin-top: 100px; /* centers section when clicking nav links */
+    scroll-margin-top: 100px;
   }
 </style>
 </head>
@@ -194,11 +193,11 @@
 </header>
 
 <nav>
-  <a href="#services">Services</a>
-  <a href="#about">About</a>
-  <a href="#contact">Contact</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651" 
-     class="book-now" 
+  <span data-target="services">Services</span>
+  <span data-target="about">About</span>
+  <span data-target="contact">Contact</span>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651"
+     class="book-now"
      target="_blank">
      Book Now
   </a>
@@ -235,8 +234,8 @@
     </div>
 
     <div class="center" style="margin-top:30px;">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651" 
-         class="book-now" 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651"
+         class="book-now"
          target="_blank">
          Book a Visit
       </a>
@@ -268,8 +267,8 @@
     <p><strong>🕓 Hours:</strong> Mon–Sat, 9 am–6 pm</p>
 
     <div class="center" style="margin-top:25px;">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651" 
-         class="book-now" 
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651"
+         class="book-now"
          target="_blank">
          📅 Book Now
       </a>
@@ -293,6 +292,15 @@
 <footer>
   <p>© 2025 Tyler’s Tech Help — Honest Work. Fair Prices. Local Help.</p>
 </footer>
+
+<script>
+  document.querySelectorAll('nav span[data-target]').forEach(el => {
+    el.addEventListener('click', () => {
+      const section = document.getElementById(el.getAttribute('data-target'));
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
 
 </body>
 </html>
