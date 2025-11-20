@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="color-scheme" content="light">
 <title>Tyler’s Tech Help — Local Computer Help</title>
 <link rel="icon" type="image/x-icon" href="/assets/icons/icon2.ico">
 <style>
@@ -23,10 +24,11 @@
   header {
     width: 100vw;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #e07b1a 0%, #d96c0d 60%, #c65a00 100%);
-    color: white;
     text-align: center;
     padding: 48px 20px 72px 20px;
+    background: url('assets/icons/orange_bg.png') no-repeat center center !important;
+    background-size: cover !important;
+    color: white;
     box-shadow: inset 0 -6px 18px rgba(0,0,0,0.18);
   }
 
@@ -153,17 +155,19 @@
 
   .book-now {
     display: inline-block;
-    background-color: #d96c0d;
-    color: white;
+    background: url('assets/icons/orange_bg.png') no-repeat center center !important;
+    background-size: cover !important;
+    color: white !important;
     font-weight: bold;
     text-decoration: none;
     padding: 12px 28px;
     border-radius: 6px;
     transition: background-color 0.2s;
+    -webkit-print-color-adjust: exact !important;
   }
 
   .book-now:hover {
-    background-color: #b85300;
+    opacity: 0.9;
   }
 
   footer {
