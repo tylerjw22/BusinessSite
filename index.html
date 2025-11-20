@@ -5,7 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tyler’s Tech Help — Local Computer Help</title>
 <link rel="icon" type="image/x-icon" href="/assets/icons/icon2.ico">
+
 <style>
+  /* --- DARK MODE EXCLUSION FOR SPECIFIC ELEMENTS --- */
+  .no-darkmode {
+    forced-color-adjust: none;
+    color-scheme: light;
+  }
+
   body {
     font-family: Arial, sans-serif;
     background-color: #f6f2ee;
@@ -13,7 +20,7 @@
     color: #222;
   }
 
-  header {
+  header.no-darkmode {
     background: linear-gradient(135deg, #e07b1a 0%, #d96c0d 60%, #c65a00 100%);
     color: white;
     text-align: center;
@@ -140,7 +147,8 @@
     line-height: 1.5;
   }
 
-  .book-now {
+  /* BOOK-NOW BUTTON — PROTECTED FROM DARK MODE */
+  .book-now.no-darkmode {
     display: inline-block;
     background-color: #d96c0d;
     color: white;
@@ -151,7 +159,7 @@
     transition: background-color 0.2s;
   }
 
-  .book-now:hover {
+  .book-now.no-darkmode:hover {
     background-color: #b85300;
   }
 
@@ -187,7 +195,7 @@
 </head>
 <body>
 
-<header>
+<header class="no-darkmode">
   <img src="assets/icons/logo.png" alt="Tyler’s Tech Help Logo" class="logo">
   <h1>Tyler’s Tech Help</h1>
   <p class="tagline">Fast, Local Tech Help You Can Trust.</p>
@@ -198,7 +206,7 @@
   <span data-target="about">About</span>
   <span data-target="contact">Contact</span>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651"
-     class="book-now"
+     class="book-now no-darkmode"
      target="_blank">
      Book Now
   </a>
@@ -236,7 +244,7 @@
 
     <div class="center" style="margin-top:30px;">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651"
-         class="book-now"
+         class="book-now no-darkmode"
          target="_blank">
          Book a Visit
       </a>
@@ -269,7 +277,7 @@
 
     <div class="center" style="margin-top:25px;">
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSe3jRq7Eky2WohgeL4k0nP9NnunerE48KhCfXkWlEKDYg9ijw/viewform?usp=sharing&ouid=111082455384782547651"
-         class="book-now"
+         class="book-now no-darkmode"
          target="_blank">
          📅 Book Now
       </a>
